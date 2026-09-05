@@ -14,6 +14,9 @@ if (mobileMenu && burgerBtn && closeMenuBtn) {
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
 }
 
+/* Reveal-on-view. Safe by design: if IntersectionObserver or transitions
+   are unsupported/disabled, we still force everything visible after a
+   short timeout so content can never get stuck hidden. */
 const revealEls = document.querySelectorAll('.reveal');
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -21,6 +24,10 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 revealEls.forEach(el => io.observe(el));
+
+setTimeout(() => {
+  revealEls.forEach(el => el.classList.add('in-view'));
+}, 1200);
 
 const stats = document.querySelectorAll('.stat-num[data-count]');
 const statIo = new IntersectionObserver((entries) => {
