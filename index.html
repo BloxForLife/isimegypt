@@ -10,40 +10,40 @@
 </head>
 <body>
 
-<div class="draft-note">Working build — gallery icons stand in for real cockpit photography, swap in soon</div>
-
 <nav id="nav">
   <div class="nav-links">
-    <a href="#sessions">Sessions</a>
-    <a href="#gallery">Gallery</a>
+    <a href="index.html">Home</a>
+    <a href="sessions.html">Sessions</a>
+    <a href="gallery.html">Gallery</a>
     <a href="reviews.html">Reviews</a>
     <a href="contact.html">Contact</a>
   </div>
   <button class="nav-burger" id="burgerBtn" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
-  <a href="index.html" class="nav-logo"><img src="assets/isim-logo.png" alt="iSim Egypt logo"></a>
+  <a href="index.html" class="nav-logo"><img src="isim.png" alt="iSim Egypt logo"></a>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
   <button class="close-x" id="closeMenuBtn" aria-label="Close menu">&times;</button>
-  <a href="#sessions">Sessions</a>
-  <a href="#gallery">Gallery</a>
+  <a href="index.html">Home</a>
+  <a href="sessions.html">Sessions</a>
+  <a href="gallery.html">Gallery</a>
   <a href="reviews.html">Reviews</a>
   <a href="contact.html">Contact</a>
-  <a href="#sessions" class="btn-primary mobile-book-btn">Book a session</a>
+  <a href="sessions.html" class="btn-primary mobile-book-btn">Book a session</a>
 </div>
 
 <section class="hero">
   <div class="hero-bg hero-bg-sky"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Cairo · City Stars Mall</div>
-    <h1>Fly a real Airbus A320 cockpit.</h1>
-    <p class="hero-lead">Egypt's first professional flight simulator. A full 1:1 scale A320 flight deck, flown with a real instructor beside you — not a game.</p>
-    <div class="hero-ctas">
-      <a href="#sessions" class="btn-primary">See sessions & pricing</a>
-      <a href="#gallery" class="btn-ghost">Watch it come alive</a>
+    <div class="hero-eyebrow reveal">Cairo · City Stars Mall</div>
+    <h1 class="reveal reveal-delay-1">Fly a real Airbus A320 cockpit.</h1>
+    <p class="hero-lead reveal reveal-delay-2">Egypt's first professional flight simulator. A full 1:1 scale A320 flight deck, flown with a real instructor beside you — not a game.</p>
+    <div class="hero-ctas reveal reveal-delay-3">
+      <a href="sessions.html" class="btn-primary">See sessions & pricing</a>
+      <a href="gallery.html" class="btn-ghost">Watch it come alive</a>
     </div>
   </div>
 </section>
@@ -69,99 +69,32 @@
   </div>
 </div>
 
-<div class="parallax-break">
-  <div class="parallax-img parallax-img-cockpit" data-speed="0.35"></div>
-  <div class="parallax-overlay">
-    <div class="parallax-caption">
-      <div class="serif">"The only place to fly an A320 with this level of system fidelity outside an official airline sim."</div>
-    </div>
-  </div>
-</div>
-
-<div class="section-wrap" id="sessions">
+<div class="section-wrap no-top">
   <div class="section-head reveal">
-    <div class="section-eyebrow">Sessions & pricing</div>
-    <h2>Every flight, one-on-one</h2>
-    <p>You're never alone in the cockpit — a real instructor flies every session beside you.</p>
+    <div class="section-eyebrow">Explore</div>
+    <h2>Everything you need to know</h2>
   </div>
-
-  <div class="session-group">
-    <div class="group-label reveal">Entertainment sessions</div>
-    <div class="session-cards">
-      <div class="session-card reveal reveal-delay-1">
-        <div class="session-name">Basic</div>
-        <div class="session-desc">15 minutes — your first time at the controls</div>
-        <div class="session-price">EGP 800</div>
-        <a href="#" class="session-book">Book</a>
-      </div>
-      <div class="session-card reveal reveal-delay-2">
-        <div class="session-name">Advanced</div>
-        <div class="session-desc">30 minutes — full take-off to landing</div>
-        <div class="session-price">EGP 1,500</div>
-        <a href="#" class="session-book">Book</a>
-      </div>
-      <div class="session-card reveal reveal-delay-3">
-        <div class="session-name">Premium</div>
-        <div class="session-desc">60 minutes — the complete experience</div>
-        <div class="session-price">EGP 2,700</div>
-        <a href="#" class="session-book">Book</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="session-group">
-    <div class="group-label reveal">Deep learning sessions</div>
-    <div class="session-cards">
-      <div class="session-card reveal reveal-delay-1">
-        <div class="session-name">15 minutes</div>
-        <div class="session-desc">Structured A320 systems walkthrough</div>
-        <div class="session-price">EGP 1,400</div>
-        <a href="#" class="session-book">Book</a>
-      </div>
-      <div class="session-card reveal reveal-delay-2">
-        <div class="session-name">30 minutes</div>
-        <div class="session-desc">Extended systems and handling practice</div>
-        <div class="session-price">EGP 2,600</div>
-        <a href="#" class="session-book">Book</a>
-      </div>
-      <div class="session-card reveal reveal-delay-3">
-        <div class="session-name">60 min, two pilots</div>
-        <div class="session-desc">Full crew procedures, real coordination</div>
-        <div class="session-price">EGP 4,400</div>
-        <a href="#" class="session-book">Book</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="session-group session-group-last">
-    <div class="group-label reveal">Live air traffic control</div>
-    <div class="session-cards atc-cards">
-      <div class="session-card reveal">
-        <div class="session-name">60 minutes with ATC</div>
-        <div class="session-desc">Fly on VATSIM among real pilots, real instructions</div>
-        <div class="session-price">EGP 3,600</div>
-        <a href="#" class="session-book">Book</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="testimonial-block">
-  <div class="testimonial-stars reveal">★★★★★</div>
-  <p class="testimonial-quote reveal reveal-delay-1">"Exceptional. I've flown simulators before — nothing came close to how this one felt."</p>
-  <div class="testimonial-source reveal reveal-delay-2"><span class="name">M. Hassan</span> — TripAdvisor review</div>
-</div>
-
-<div class="section-wrap" id="gallery">
-  <div class="section-head reveal">
-    <div class="section-eyebrow">Inside the cockpit</div>
-    <h2>A closer look</h2>
-  </div>
-  <div class="gallery-grid reveal">
-    <a href="#" class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L12 22 M2 14 L12 10 L22 14 M9 19 L12 22 L15 19"/></svg></a>
-    <a href="#" class="gallery-tile alt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L12 22 M2 14 L12 10 L22 14 M9 19 L12 22 L15 19"/></svg></a>
-    <a href="#" class="gallery-tile alt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L12 22 M2 14 L12 10 L22 14 M9 19 L12 22 L15 19"/></svg></a>
-    <a href="#" class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L12 22 M2 14 L12 10 L22 14 M9 19 L12 22 L15 19"/></svg></a>
+  <div class="explore-grid reveal">
+    <a href="sessions.html" class="explore-card">
+      <h3>Sessions & pricing</h3>
+      <p>Entertainment, deep learning, and live ATC flights.</p>
+      <div class="link">View pricing →</div>
+    </a>
+    <a href="gallery.html" class="explore-card">
+      <h3>Gallery</h3>
+      <p>A closer look inside the cockpit.</p>
+      <div class="link">See photos →</div>
+    </a>
+    <a href="reviews.html" class="explore-card">
+      <h3>Reviews</h3>
+      <p>What flyers say after taking the controls.</p>
+      <div class="link">Read reviews →</div>
+    </a>
+    <a href="contact.html" class="explore-card">
+      <h3>Visit us</h3>
+      <p>Location, hours, and how to book.</p>
+      <div class="link">Get directions →</div>
+    </a>
   </div>
 </div>
 
@@ -172,7 +105,7 @@
     <h2 class="reveal">Ready to take the controls?</h2>
     <p class="reveal reveal-delay-1">City Stars Mall, Cairo — open daily, 10 AM to midnight.</p>
     <div class="hero-ctas reveal reveal-delay-2">
-      <a href="#sessions" class="btn-primary">Book your session</a>
+      <a href="sessions.html" class="btn-primary">Book your session</a>
     </div>
   </div>
 </section>
