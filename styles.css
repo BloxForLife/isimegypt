@@ -178,4 +178,13 @@ nav.scrolled .nav-logo img{height:44px;}
 .contact-card .label{color:var(--gold);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
 .contact-card .value{font-size:1rem;line-height:1.5;}
 
-footer{padding:32px 24px;border-top:1px solid var(--line);text-align:center;color:var(--ink-dim);font-size:0.85rem;}
+footer{padding:56px 24px 28px;border-top:1px solid var(--line);color:var(--ink-dim);font-size:0.85rem;}
+.footer-grid{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1.4fr 1fr;gap:32px;padding-bottom:32px;}
+@media(max-width:780px){.footer-grid{grid-template-columns:1fr 1fr;gap:28px;}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+.footer-logo{height:40px;width:auto;margin-bottom:12px;}
+.footer-tagline{font-size:0.85rem;line-height:1.5;}
+.footer-heading{color:var(--gold);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;font-weight:600;}
+.footer-col a,.footer-col p{display:block;margin-bottom:8px;font-size:0.85rem;color:var(--ink-dim);}
+.footer-col a:hover{color:var(--ink);}
+.footer-bottom{max-width:1080px;margin:0 auto;border-top:1px solid var(--line);padding-top:20px;text-align:center;font-size:0.78rem;}
