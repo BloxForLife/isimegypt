@@ -83,7 +83,8 @@ nav.scrolled .nav-logo img{height:44px;}
 
 /* STATEMENT */
 .statement-scene{position:relative;overflow:hidden;}
-.plane-icon{position:absolute;top:20px;left:-40px;width:34px;height:34px;color:var(--gold);opacity:0.85;transform:rotate(-6deg);will-change:transform;pointer-events:none;z-index:1;}
+.plane-icon{position:absolute;top:50%;left:0;width:130px;height:auto;opacity:0.95;pointer-events:none;will-change:transform;z-index:1;}
+@media(min-width:780px){.plane-icon{width:190px;}}
 .statement{padding:90px 24px;text-align:center;max-width:800px;margin:0 auto;position:relative;z-index:2;}
 .statement p{font-size:1.7rem;font-weight:500;line-height:1.45;color:var(--ink);}
 .statement p em{color:var(--gold);font-style:italic;}
