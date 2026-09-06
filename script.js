@@ -67,3 +67,19 @@ function updateParallax(){
 }
 window.addEventListener('scroll', () => requestAnimationFrame(updateParallax));
 updateParallax();
+
+/* Plane flies across the "35,000 feet" statement as you scroll past it */
+const statementScene = document.getElementById('statementScene');
+const planeIcon = document.getElementById('planeIcon');
+function updatePlane(){
+  if (!statementScene || !planeIcon) return;
+  const rect = statementScene.getBoundingClientRect();
+  const vh = window.innerHeight;
+  let progress = (vh - rect.top) / (vh + rect.height);
+  progress = Math.max(0, Math.min(1, progress));
+  const travel = statementScene.offsetWidth + 80;
+  const x = -40 + progress * travel;
+  planeIcon.style.transform = `translateX(${x}px) rotate(-6deg)`;
+}
+window.addEventListener('scroll', () => requestAnimationFrame(updatePlane));
+updatePlane();
