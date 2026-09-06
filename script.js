@@ -6,12 +6,16 @@ if (nav) {
 }
 
 const mobileMenu = document.getElementById('mobileMenu');
+const menuBackdrop = document.getElementById('menuBackdrop');
 const burgerBtn = document.getElementById('burgerBtn');
 const closeMenuBtn = document.getElementById('closeMenuBtn');
+function openMenu(){ mobileMenu.classList.add('open'); if (menuBackdrop) menuBackdrop.classList.add('open'); }
+function closeMenu(){ mobileMenu.classList.remove('open'); if (menuBackdrop) menuBackdrop.classList.remove('open'); }
 if (mobileMenu && burgerBtn && closeMenuBtn) {
-  burgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
-  closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+  burgerBtn.addEventListener('click', openMenu);
+  closeMenuBtn.addEventListener('click', closeMenu);
+  if (menuBackdrop) menuBackdrop.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 }
 
 /* Reveal-on-view. Safe by design: if IntersectionObserver or transitions
