@@ -21,6 +21,9 @@ if (mobileMenu && burgerBtn && closeMenuBtn) {
 /* Reveal-on-view. Safe by design: if IntersectionObserver or transitions
    are unsupported/disabled, we still force everything visible after a
    short timeout so content can never get stuck hidden. */
+const copyYear = document.getElementById('copyYear');
+if (copyYear) copyYear.textContent = new Date().getFullYear();
+
 const revealEls = document.querySelectorAll('.reveal');
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
