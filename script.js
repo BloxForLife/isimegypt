@@ -77,9 +77,10 @@ function updatePlane(){
   const vh = window.innerHeight;
   let progress = (vh - rect.top) / (vh + rect.height);
   progress = Math.max(0, Math.min(1, progress));
-  const travel = statementScene.offsetWidth + 80;
-  const x = -40 + progress * travel;
-  planeIcon.style.transform = `translateX(${x}px) rotate(-6deg)`;
+  const planeWidth = planeIcon.offsetWidth || 150;
+  const travel = statementScene.offsetWidth + planeWidth * 2;
+  const x = -planeWidth + progress * travel;
+  planeIcon.style.transform = `translateY(-50%) translateX(${x}px)`;
 }
 window.addEventListener('scroll', () => requestAnimationFrame(updatePlane));
 updatePlane();
