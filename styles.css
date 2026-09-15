@@ -184,6 +184,32 @@ footer{padding:56px 24px 28px;border-top:1px solid var(--line);color:var(--ink-d
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
 .footer-logo{height:40px;width:auto;margin-bottom:12px;}
 .footer-tagline{font-size:0.85rem;line-height:1.5;}
+.footer-social{display:flex;gap:14px;margin-top:14px;}
+.footer-social a{color:var(--ink-dim);font-size:0.8rem;}
+.footer-social a:hover{color:var(--gold);}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.video-embed{position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;border:1px solid var(--line);}
+.video-embed iframe{width:100%;height:100%;border:0;}
+@media(max-width:900px){.video-grid{grid-template-columns:1fr;}}
+
+/* TRIPADVISOR CAROUSEL */
+.ta-block{padding:56px 24px 64px;max-width:640px;margin:0 auto;text-align:center;}
+.ta-header{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:24px;}
+.ta-brand{font-weight:700;font-size:1rem;color:#34E0A1;}
+.ta-stars{color:var(--gold);font-size:0.95rem;letter-spacing:1px;}
+.ta-status{color:var(--ink-dim);font-size:0.85rem;}
+.ta-carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:0;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:2px;}
+.ta-carousel::-webkit-scrollbar{display:none;}
+.ta-slide{flex:0 0 100%;scroll-snap-align:center;padding:0 4px;}
+.ta-slide .review-card{border-top:2px solid var(--gold);}
+.ta-dots{display:flex;justify-content:center;gap:8px;margin:18px 0 20px;}
+.ta-dots span{width:7px;height:7px;border-radius:50%;background:var(--line);cursor:pointer;transition:background 0.3s ease;}
+.ta-dots span.active{background:var(--gold);}
+.ta-link{color:var(--gold);font-size:0.85rem;font-weight:600;}
+.ta-link:hover{opacity:0.8;}
+
+.latest-video{max-width:800px;margin:0 auto;aspect-ratio:16/9;border-radius:8px;overflow:hidden;border:1px solid var(--line);}
+.latest-video iframe{width:100%;height:100%;border:0;}
 .footer-heading{color:var(--gold);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;font-weight:600;}
 .footer-col a,.footer-col p{display:block;margin-bottom:8px;font-size:0.85rem;color:var(--ink-dim);}
 .footer-col a:hover{color:var(--ink);}
