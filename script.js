@@ -71,3 +71,20 @@ function updateParallax(){
 window.addEventListener('scroll', () => requestAnimationFrame(updateParallax));
 updateParallax();
 
+/* TripAdvisor-style review carousel: swipeable, with clickable dot nav */
+const taCarousel = document.getElementById('taCarousel');
+const taDots = document.getElementById('taDots');
+if (taCarousel && taDots) {
+  const dots = taDots.querySelectorAll('span');
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const i = parseInt(dot.dataset.slide, 10);
+      taCarousel.scrollTo({ left: i * taCarousel.offsetWidth, behavior: 'smooth' });
+    });
+  });
+  taCarousel.addEventListener('scroll', () => {
+    const i = Math.round(taCarousel.scrollLeft / taCarousel.offsetWidth);
+    dots.forEach((dot, idx) => dot.classList.toggle('active', idx === i));
+  });
+}
+
