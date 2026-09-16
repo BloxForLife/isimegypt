@@ -195,7 +195,8 @@ footer{padding:56px 24px 28px;border-top:1px solid var(--line);color:var(--ink-d
 /* TRIPADVISOR CAROUSEL */
 .ta-block{padding:56px 24px 64px;max-width:640px;margin:0 auto;text-align:center;}
 .ta-header{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:24px;}
-.ta-brand{height:22px;width:auto;filter:brightness(0) invert(1);}
+.ta-icon{height:24px;width:auto;}
+.ta-brand{font-weight:700;font-size:1rem;color:#fff;}
 .ta-stars{color:var(--gold);font-size:0.95rem;letter-spacing:1px;}
 .ta-status{color:var(--ink-dim);font-size:0.85rem;}
 .ta-carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:0;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:2px;}
