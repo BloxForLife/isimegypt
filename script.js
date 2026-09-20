@@ -88,3 +88,69 @@ if (taCarousel && taDots) {
   });
 }
 
+
+/* Gallery lightbox: click a tile to view it full size, then arrow keys or the
+   on-screen chevrons to move through the set. Progressive enhancement — with
+   JS off the tiles are still plain links straight to the full-size photo. */
+const lightbox = document.getElementById('lightbox');
+if (lightbox) {
+  const tiles   = Array.from(document.querySelectorAll('.gallery-tile'));
+  const lbImg   = document.getElementById('lbImg');
+  const lbCap   = document.getElementById('lbCap');
+  const lbClose = document.getElementById('lbClose');
+  const lbPrev  = document.getElementById('lbPrev');
+  const lbNext  = document.getElementById('lbNext');
+  let current = 0;
+  let lastFocused = null;
+
+  function show(i){
+    current = (i + tiles.length) % tiles.length;
+    const tile = tiles[current];
+    const img = tile.querySelector('img');
+    lbImg.src = tile.getAttribute('href');
+    lbImg.alt = img ? img.alt : '';
+    lbCap.textContent = tile.dataset.caption || '';
+  }
+
+  function open(i){
+    lastFocused = document.activeElement;
+    show(i);
+    lightbox.hidden = false;
+    requestAnimationFrame(() => lightbox.classList.add('open'));
+    document.body.style.overflow = 'hidden';
+    lbClose.focus();
+  }
+
+  function close(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => { lightbox.hidden = true; lbImg.src = ''; }, 300);
+    if (lastFocused) lastFocused.focus();
+  }
+
+  tiles.forEach((tile, i) => {
+    tile.addEventListener('click', (e) => { e.preventDefault(); open(i); });
+  });
+
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click', () => show(current - 1));
+  lbNext.addEventListener('click', () => show(current + 1));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') show(current - 1);
+    else if (e.key === 'ArrowRight') show(current + 1);
+  });
+
+  /* Keep tabbing inside the viewer while it's open. */
+  lightbox.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const focusable = [lbClose, lbPrev, lbNext];
+    const idx = focusable.indexOf(document.activeElement);
+    e.preventDefault();
+    const next = e.shiftKey ? idx - 1 : idx + 1;
+    focusable[(next + focusable.length) % focusable.length].focus();
+  });
+}

@@ -8,7 +8,7 @@
 <meta name="description" content="A closer look inside the iSim Egypt A320 flight simulator cockpit at City Stars Mall, Cairo.">
 <meta property="og:title" content="Gallery — iSim Egypt">
 <meta property="og:description" content="A closer look inside the iSim Egypt A320 flight simulator cockpit at City Stars Mall, Cairo.">
-<meta property="og:image" content="isim.png">
+<meta property="og:image" content="gallery/cockpit-night-runway.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
@@ -51,11 +51,65 @@
 
 <div class="section-wrap">
   <div class="gallery-grid reveal">
-    <a href="#" class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L12 22 M2 14 L12 10 L22 14 M9 19 L12 22 L15 19"/></svg></a>
-    <a href="#" class="gallery-tile alt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L12 22 M2 14 L12 10 L22 14 M9 19 L12 22 L15 19"/></svg></a>
-    <a href="#" class="gallery-tile alt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L12 22 M2 14 L12 10 L22 14 M9 19 L12 22 L15 19"/></svg></a>
-    <a href="#" class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L12 22 M2 14 L12 10 L22 14 M9 19 L12 22 L15 19"/></svg></a>
+
+    <a class="gallery-tile wide" href="gallery/cockpit-night-runway.jpg"
+       data-caption="Night departure — lined up on the centreline, landing lights on.">
+      <img src="gallery/cockpit-night-runway.jpg" width="1920" height="1080" loading="eager" decoding="async"
+           alt="Instructor in uniform flying the iSim A320 simulator at night, runway lights stretching ahead through the windscreen.">
+      <span class="tile-cap">Night departure</span>
+    </a>
+
+    <a class="gallery-tile tall" href="gallery/center-pedestal.jpg"
+       data-caption="The centre pedestal — thrust levers, speed brake, flap lever and both MCDUs.">
+      <img src="gallery/center-pedestal.jpg" width="598" height="960" loading="lazy" decoding="async"
+           alt="Overhead view of the A320 centre pedestal showing the thrust levers, speed brake, flap lever and twin MCDU keypads.">
+      <span class="tile-cap">Centre pedestal</span>
+    </a>
+
+    <a class="gallery-tile" href="gallery/flight-deck-day.jpg"
+       data-caption="Both seats, overhead panel lit, ready for the walkthrough before you fly.">
+      <img src="gallery/flight-deck-day.jpg" width="1280" height="929" loading="lazy" decoding="async"
+           alt="Full view of the iSim A320 flight deck in daylight, overhead panel illuminated above both pilot seats.">
+      <span class="tile-cap">The flight deck</span>
+    </a>
+
+    <a class="gallery-tile" href="gallery/runway-lineup.jpg"
+       data-caption="Your view from the right seat — 3.5 km of runway and nothing else to do but fly it.">
+      <img src="gallery/runway-lineup.jpg" width="1280" height="894" loading="lazy" decoding="async"
+           alt="View across the iSim A320 cockpit toward the windscreen, lined up on a daylight runway.">
+      <span class="tile-cap">Cleared for take-off</span>
+    </a>
+
+    <a class="gallery-tile" href="gallery/fcu-panel.jpg"
+       data-caption="The FCU — speed, heading, altitude and vertical speed, exactly where the real one lives.">
+      <img src="gallery/fcu-panel.jpg" width="1280" height="808" loading="lazy" decoding="async"
+           alt="Close-up of the illuminated Flight Control Unit showing speed 149 and heading 054 at night.">
+      <span class="tile-cap">Flight Control Unit</span>
+    </a>
+
+    <a class="gallery-tile" href="gallery/thrust-levers.jpg"
+       data-caption="Detent by detent — CL, FLX/MCT and TOGA, with the engine masters alongside.">
+      <img src="gallery/thrust-levers.jpg" width="1280" height="849" loading="lazy" decoding="async"
+           alt="Close-up of the A320 thrust levers in their gate, engine master switches and start selector beside them.">
+      <span class="tile-cap">Thrust levers</span>
+    </a>
+
   </div>
+</div>
+
+<div class="gallery-note section-wrap">
+  <p>Every photograph on this page is the actual simulator at City Stars Mall &mdash; no renders, no stock.</p>
+  <a href="contact.html" class="btn-primary">Book your seat</a>
+</div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <button class="lb-close" id="lbClose" aria-label="Close viewer">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+  <figure class="lb-stage">
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">&#8250;</button>
 </div>
 
 <footer>
