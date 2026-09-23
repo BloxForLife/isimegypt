@@ -207,6 +207,12 @@ nav.scrolled .nav-logo img{height:44px;}
 .contact-card{background:var(--navy-2);border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:2px;padding:26px;}
 .contact-card .label{color:var(--gold);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
 .contact-card .value{font-size:1rem;line-height:1.5;}
+.map-card{max-width:800px;margin:20px auto 0;background:var(--navy-2);border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:2px;overflow:hidden;}
+.map-embed{display:block;width:100%;height:340px;border:0;}
+@media(max-width:560px){.map-embed{height:260px;}}
+.map-footer{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:18px 22px;}
+.map-footer span{color:var(--ink-dim);font-size:0.9rem;}
+.map-footer .btn-primary{padding:11px 22px;font-size:0.88rem;}
 
 /* BOOKING PAGE */
 .booking-panel{max-width:520px;margin:0 auto;background:var(--navy-2);border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:2px;padding:32px 28px;}
