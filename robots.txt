@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bloxforlife.github.io/isimegypt/sitemap.xml
