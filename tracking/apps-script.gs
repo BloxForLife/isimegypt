@@ -9,9 +9,28 @@ function doPost(e) {
   if (EVENTS.indexOf(d.event) === -1) return ContentService.createTextOutput('ignored');
 
   var clip = function (v) { return String(v || '').slice(0, 100); };
-  SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Events')
-    .appendRow([new Date(), d.event, clip(d.detail), clip(d.page), clip(d.device), clip(d.ref)]);
+  eventsSheet().appendRow([new Date(), d.event, clip(d.detail), clip(d.page), clip(d.device), clip(d.ref)]);
   return ContentService.createTextOutput('ok');
+}
+
+// Opening the web app URL in a browser shows which spreadsheet it writes to.
+function doGet() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  return ContentService.createTextOutput('Tracking is running. Events go to "' + ss.getName() + '": ' + ss.getUrl());
+}
+
+// The Events tab, created with a header row if it doesn't exist yet.
+function eventsSheet() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ev = ss.getSheetByName('Events');
+  if (!ev) {
+    try { ev = ss.insertSheet('Events'); } catch (err) { ev = ss.getSheetByName('Events'); }
+  }
+  if (ev.getLastRow() === 0) {
+    ev.appendRow(['Time', 'Event', 'Detail', 'Page', 'Device', 'Came from']);
+    ev.setFrozenRows(1);
+  }
+  return ev;
 }
 
 // Run once from the Apps Script editor: creates the Events and Summary tabs.
@@ -19,9 +38,7 @@ function setup() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   ss.setSpreadsheetTimeZone('Africa/Cairo');
 
-  var ev = ss.getSheetByName('Events') || ss.insertSheet('Events');
-  ev.getRange(1, 1, 1, 6).setValues([['Time', 'Event', 'Detail', 'Page', 'Device', 'Came from']]).setFontWeight('bold');
-  ev.setFrozenRows(1);
+  eventsSheet().getRange(1, 1, 1, 6).setFontWeight('bold');
 
   var sum = ss.getSheetByName('Summary') || ss.insertSheet('Summary', 0);
   sum.clear();

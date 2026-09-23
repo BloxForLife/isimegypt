@@ -14,10 +14,14 @@ tracking is off and the site sends nothing.
 3. In the function dropdown at the top, choose **setup** and click **Run**.
    Google asks you to authorise it. Because it's your own script, you'll see
    an "unverified app" warning: click **Advanced → Go to (project name)** and
-   allow. This creates the **Summary** and **Events** tabs.
+   allow. This creates the **Summary** and **Events** tabs. (If it fails,
+   carry on: the Events tab is created automatically with the first event,
+   and you can run setup again later for the Summary tab.)
 4. Click **Deploy → New deployment**. Choose type **Web app**, set
    **Execute as: Me** and **Who has access: Anyone**, then **Deploy**.
    Copy the **Web app URL** (it ends in `/exec`).
+   Opening that URL in a browser should say "Tracking is running" and name
+   the spreadsheet it writes to.
 5. In `script.js`, at the very top, paste that URL between the quotes:
    `const TRACK_URL = 'https://script.google.com/macros/s/.../exec';`
    Commit and push. Tracking starts within a minute of the site updating.
