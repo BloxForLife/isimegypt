@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Session — iSim Egypt</title>
+<link rel="icon" type="image/png" href="isim.png">
+<meta name="description" content="Book an iSim Egypt A320 simulator session at City Stars Mall, Cairo — pick your flight, date and time, then call to confirm.">
+<meta property="og:title" content="Book a Session — iSim Egypt">
+<meta property="og:description" content="Book an iSim Egypt A320 simulator session at City Stars Mall, Cairo — pick your flight, date and time, then call to confirm.">
+<meta property="og:image" content="https://bloxforlife.github.io/isimegypt/gallery/cockpit-night-runway.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="sessions.html">Sessions</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <button class="nav-burger" id="burgerBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <a href="index.html" class="nav-logo"><img src="isim.png" alt="iSim Egypt logo"></a>
+</nav>
+
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-x" id="closeMenuBtn" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="sessions.html">Sessions</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-hero">
+  <h1>Book a session</h1>
+  <p>Pick your flight, then give us a call to lock it in.</p>
+</div>
+
+<div class="section-wrap no-top">
+  <div class="booking-panel">
+
+    <form class="book-form" id="bookForm">
+      <div class="book-field">
+        <label for="bkSession">Session</label>
+        <select id="bkSession" required>
+          <option value="">Choose a session</option>
+          <optgroup label="Entertainment">
+            <option value="basic" data-name="Basic" data-min="15" data-price="EGP 800">Basic · 15 min · EGP 800</option>
+            <option value="advanced" data-name="Advanced" data-min="30" data-price="EGP 1,500">Advanced · 30 min · EGP 1,500</option>
+            <option value="premium" data-name="Premium" data-min="60" data-price="EGP 2,700">Premium · 60 min · EGP 2,700</option>
+          </optgroup>
+          <optgroup label="Deep learning">
+            <option value="deep15" data-name="Deep learning" data-min="15" data-price="EGP 1,400">Deep learning · 15 min · EGP 1,400</option>
+            <option value="deep30" data-name="Deep learning" data-min="30" data-price="EGP 2,600">Deep learning · 30 min · EGP 2,600</option>
+            <option value="deep60" data-name="Deep learning, two pilots" data-min="60" data-price="EGP 4,400">Two pilots · 60 min · EGP 4,400</option>
+          </optgroup>
+          <optgroup label="Live air traffic control">
+            <option value="atc60" data-name="Live ATC" data-min="60" data-price="EGP 3,600">Live ATC · 60 min · EGP 3,600</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="book-field">
+        <label for="bkDate">Date</label>
+        <input type="date" id="bkDate" required>
+      </div>
+
+      <div class="book-field">
+        <label for="bkTime">Time</label>
+        <select id="bkTime" required>
+          <option value="">Pick a session and date first</option>
+        </select>
+      </div>
+
+      <div class="book-field">
+        <label for="bkName">Your name</label>
+        <input type="text" id="bkName" autocomplete="name" required pattern=".*\S.*" title="Please enter your name">
+      </div>
+
+      <button type="submit" class="btn-primary book-submit">Continue</button>
+      <p class="book-note">Nothing is reserved until we've spoken on the phone.</p>
+    </form>
+
+    <div class="book-summary" id="bookSummary" hidden>
+      <h2 class="book-summary-title" id="bookSummaryTitle" tabindex="-1">Your booking</h2>
+      <dl class="book-details">
+        <dt>Session</dt><dd id="sumSession"></dd>
+        <dt>Date</dt><dd id="sumDate"></dd>
+        <dt>Time</dt><dd id="sumTime"></dd>
+        <dt>Price</dt><dd id="sumPrice"></dd>
+        <dt>Name</dt><dd id="sumName"></dd>
+      </dl>
+      <a class="btn-primary book-call" href="tel:+201065473010">Call to book · 010 6547 3010</a>
+      <p class="book-note">Read these details out when we answer. Pay at the simulator: cash, Visa or InstaPay.</p>
+      <button type="button" class="book-edit" id="bookEdit">&larr; Change details</button>
+    </div>
+
+    <noscript>
+      <p class="book-note">To book, call us on <a href="tel:+201065473010">010 6547 3010</a>.</p>
+    </noscript>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <img src="isim.png" alt="iSim Egypt logo" class="footer-logo">
+      <p class="footer-tagline">Egypt's first professional A320 flight simulator experience.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Quick Links</div>
+      <a href="index.html">Home</a>
+      <a href="sessions.html">Sessions</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Contact</div>
+      <p>City Stars Mall, Gate 6, Phase 2, 4th floor, Cairo</p>
+      <a href="https://wa.me/201065473010">01065473010 (WhatsApp)</a>
+      <a href="mailto:info@isimegypt.com">info@isimegypt.com</a>
+      <p>Daily, 10:00 AM – midnight</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Payment</div>
+      <p>Cash · Visa · InstaPay</p>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; <span id="copyYear">2026</span> iSim Egypt. All rights reserved.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

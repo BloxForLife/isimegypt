@@ -154,3 +154,83 @@ if (lightbox) {
     focusable[(next + focusable.length) % focusable.length].focus();
   });
 }
+
+/* Booking page: the customer picks a session, date and time, then gets a
+   summary to read out on the phone. There is no backend, so nothing is
+   reserved here; the call is what books the slot. */
+const bookForm = document.getElementById('bookForm');
+if (bookForm) {
+  const OPEN = 10 * 60, CLOSE = 24 * 60, STEP = 30; // minutes from midnight
+  const bkSession = document.getElementById('bkSession');
+  const bkDate    = document.getElementById('bkDate');
+  const bkTime    = document.getElementById('bkTime');
+  const bkName    = document.getElementById('bkName');
+  const summary   = document.getElementById('bookSummary');
+
+  const pad = n => String(n).padStart(2, '0');
+  const isoLocal = d => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  function clock(mins){
+    const h = Math.floor(mins / 60) % 24;
+    return (h % 12 || 12) + ':' + pad(mins % 60) + ' ' + (h < 12 ? 'AM' : 'PM');
+  }
+  function placeholder(text){
+    bkTime.innerHTML = '';
+    bkTime.add(new Option(text, ''));
+  }
+
+  bkDate.min = isoLocal(new Date());
+
+  function rebuildTimes(){
+    const opt = bkSession.selectedOptions[0];
+    const duration = opt && opt.value ? parseInt(opt.dataset.min, 10) : 0;
+    if (!duration || !bkDate.value) { placeholder('Pick a session and date first'); return; }
+
+    const now = new Date();
+    const isToday = bkDate.value === isoLocal(now);
+    const nowMins = now.getHours() * 60 + now.getMinutes();
+    const previous = bkTime.value;
+
+    placeholder('Choose a time');
+    let count = 0;
+    for (let start = OPEN; start + duration <= CLOSE; start += STEP) {
+      if (isToday && start <= nowMins) continue;
+      bkTime.add(new Option(clock(start), String(start)));
+      count++;
+    }
+    if (!count) { placeholder('No times left today, try another date'); return; }
+    if (previous && bkTime.querySelector('option[value="' + previous + '"]')) bkTime.value = previous;
+  }
+
+  const preset = new URLSearchParams(location.search).get('session');
+  if (preset && bkSession.querySelector('option[value="' + preset + '"]')) bkSession.value = preset;
+
+  bkSession.addEventListener('change', rebuildTimes);
+  bkDate.addEventListener('change', rebuildTimes);
+  rebuildTimes();
+
+  bookForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const opt = bkSession.selectedOptions[0];
+    const duration = parseInt(opt.dataset.min, 10);
+    const start = parseInt(bkTime.value, 10);
+    const [y, m, d] = bkDate.value.split('-').map(Number);
+
+    document.getElementById('sumSession').textContent = opt.dataset.name + ' · ' + duration + ' min';
+    document.getElementById('sumDate').textContent =
+      new Date(y, m - 1, d).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+    document.getElementById('sumTime').textContent = clock(start) + ' – ' + clock(start + duration);
+    document.getElementById('sumPrice').textContent = opt.dataset.price;
+    document.getElementById('sumName').textContent = bkName.value.trim();
+
+    bookForm.hidden = true;
+    summary.hidden = false;
+    document.getElementById('bookSummaryTitle').focus();
+    summary.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  document.getElementById('bookEdit').addEventListener('click', () => {
+    summary.hidden = true;
+    bookForm.hidden = false;
+    bkSession.focus();
+  });
+}

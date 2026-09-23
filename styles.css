@@ -208,6 +208,24 @@ nav.scrolled .nav-logo img{height:44px;}
 .contact-card .label{color:var(--gold);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
 .contact-card .value{font-size:1rem;line-height:1.5;}
 
+/* BOOKING PAGE */
+.booking-panel{max-width:520px;margin:0 auto;background:var(--navy-2);border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:2px;padding:32px 28px;}
+@media(max-width:560px){.booking-panel{padding:26px 20px;}}
+.book-field{margin-bottom:20px;}
+.book-field label{display:block;color:var(--gold);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
+.book-field input,.book-field select{width:100%;background:var(--navy);color:var(--ink);border:1px solid rgba(237,233,223,0.2);border-radius:2px;padding:12px 14px;font:inherit;font-size:1rem;color-scheme:dark;}
+.book-field input:focus,.book-field select:focus{outline:none;border-color:var(--gold);}
+.book-submit{display:block;width:100%;border:none;cursor:pointer;font-family:inherit;}
+.book-note{font-size:0.82rem;color:var(--ink-dim);margin-top:14px;text-align:center;}
+.book-note a{color:var(--gold);}
+.book-summary-title{font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:18px;text-align:center;outline:none;}
+.book-details{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin-bottom:26px;}
+.book-details dt{color:var(--ink-dim);font-size:0.88rem;}
+.book-details dd{font-weight:600;text-align:right;}
+.book-call{display:block;text-align:center;font-size:1.05rem;padding:18px 20px;}
+.book-edit{display:block;margin:12px auto 0;background:none;border:none;color:var(--ink-dim);cursor:pointer;font:inherit;font-size:0.88rem;padding:6px;}
+.book-edit:hover{color:var(--ink);}
+
 footer{padding:56px 24px 28px;border-top:1px solid var(--line);color:var(--ink-dim);font-size:0.85rem;}
 .footer-grid{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1.4fr 1fr;gap:32px;padding-bottom:32px;}
 @media(max-width:780px){.footer-grid{grid-template-columns:1fr 1fr;gap:28px;}}
