@@ -2,7 +2,7 @@
    Script web app (setup steps in tracking/SETUP.md). TRACK_URL empty means
    tracking is off and nothing is sent. Only the event, which page, phone or
    desktop, and the referring site are sent: never names or phone numbers. */
-const TRACK_URL = '';
+const TRACK_URL = 'https://script.google.com/macros/s/AKfycbyVL1Rw37cDNgFxULXA1WrQ4JlTqz_N_DDgFba6XwA3HWOvxXzhGy-yTONxkVrtfob2/exec';
 let bookedSession = '';
 
 function track(event, detail){
@@ -16,10 +16,10 @@ function track(event, detail){
     device: window.matchMedia('(max-width: 780px)').matches ? 'phone' : 'desktop',
     ref: ref
   });
+  // credentials: 'omit' because Apps Script can reject requests carrying
+  // cookies from a browser signed into several Google accounts.
   try {
-    if (!(navigator.sendBeacon && navigator.sendBeacon(TRACK_URL, new Blob([body], { type: 'text/plain' })))) {
-      fetch(TRACK_URL, { method: 'POST', mode: 'no-cors', keepalive: true, body: body });
-    }
+    fetch(TRACK_URL, { method: 'POST', mode: 'no-cors', credentials: 'omit', keepalive: true, body: body });
   } catch (e) {}
 }
 
