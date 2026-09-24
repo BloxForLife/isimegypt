@@ -1,38 +1,3 @@
-/* Visit and tap counting, stored in a Google Sheet through a small Apps
-   Script web app (setup steps in tracking/SETUP.md). TRACK_URL empty means
-   tracking is off and nothing is sent. Only the event, which page, phone or
-   desktop, and the referring site are sent: never names or phone numbers. */
-const TRACK_URL = 'https://script.google.com/macros/s/AKfycbyVL1Rw37cDNgFxULXA1WrQ4JlTqz_N_DDgFba6XwA3HWOvxXzhGy-yTONxkVrtfob2/exec';
-let bookedSession = '';
-
-function track(event, detail){
-  if (!TRACK_URL) return;
-  let ref = '';
-  try { if (document.referrer) { const h = new URL(document.referrer).hostname; if (h !== location.hostname) ref = h; } } catch (e) {}
-  const body = JSON.stringify({
-    event: event,
-    detail: detail || '',
-    page: document.body.dataset.page || location.pathname.split('/').pop() || 'index.html',
-    device: window.matchMedia('(max-width: 780px)').matches ? 'phone' : 'desktop',
-    ref: ref
-  });
-  // credentials: 'omit' because Apps Script can reject requests carrying
-  // cookies from a browser signed into several Google accounts.
-  try {
-    fetch(TRACK_URL, { method: 'POST', mode: 'no-cors', credentials: 'omit', keepalive: true, body: body });
-  } catch (e) {}
-}
-
-track('page_view', new URLSearchParams(location.search).get('session') || '');
-
-document.addEventListener('click', (e) => {
-  const a = e.target.closest('a[href]');
-  if (!a) return;
-  const href = a.getAttribute('href');
-  if (href.startsWith('tel:')) track('call_tap', bookedSession || 'not from booking form');
-  else if (href.includes('wa.me/')) track('whatsapp_tap');
-});
-
 const nav = document.getElementById('nav');
 if (nav) {
   window.addEventListener('scroll', () => {
@@ -248,8 +213,6 @@ if (bookForm) {
     const opt = bkSession.selectedOptions[0];
     const duration = parseInt(opt.dataset.min, 10);
     const start = parseInt(bkTime.value, 10);
-    bookedSession = opt.dataset.name + ' ' + duration + ' min';
-    track('book_continue', bookedSession);
     const [y, m, d] = bkDate.value.split('-').map(Number);
 
     document.getElementById('sumSession').textContent = opt.dataset.name + ' · ' + duration + ' min';
