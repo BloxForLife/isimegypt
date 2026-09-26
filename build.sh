@@ -14,11 +14,12 @@ mkdir -p dist
 cp -r gallery isim.png a320.png styles.css script.js dist/
 
 npx staticrypt *.html -d dist --short --remember 30 \
+  -t lock-template.html \
   --template-title "Website locked" \
-  --template-instructions "Payment for this website is still pending. Enter the password to continue." \
-  --template-button "Continue" \
-  --template-placeholder "Password" \
+  --template-instructions "This website has been abandoned because the developer and the client did not reach an agreement. It is now locked to prevent it being marketed without the developer's permission." \
+  --template-button "Continue / متابعة" \
+  --template-placeholder "Password / كلمة المرور" \
   --template-remember "Remember me for 30 days" \
-  --template-error "Wrong password" \
+  --template-error "Wrong password / كلمة مرور خاطئة" \
   --template-color-primary "#C7A15A" \
   --template-color-secondary "#120D08"
