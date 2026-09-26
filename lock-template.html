@@ -259,6 +259,15 @@
                 clearLocalStorageCallback: null,
             };
 
+            // With "Remember me" off, drop any login a browser saved while it was on,
+            // so every visit has to type the password.
+            if (!isRememberEnabled) {
+                try {
+                    localStorage.removeItem(templateConfig.rememberPassphraseKey);
+                    localStorage.removeItem(templateConfig.rememberExpirationKey);
+                } catch (e) {}
+            }
+
             // init the staticrypt engine
             const staticrypt = staticryptInitiator.init(staticryptConfig, templateConfig);
 
