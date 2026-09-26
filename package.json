@@ -1,0 +1,10 @@
+{
+  "name": "isimegypt-site",
+  "private": true,
+  "scripts": {
+    "build": "sh build.sh"
+  },
+  "devDependencies": {
+    "staticrypt": "3.5.4"
+  }
+}
